@@ -6,6 +6,7 @@ set(TARGET ${PROJECT_NAME})
 set(CMAKE_C_FLAGS "\
   -mtc162 \
   -Wall   \
+  -g      \
   -Wpointer-arith \
   -Wshadow -Wfloat-equal -Wno-unused-local-typedefs -Wextra -fno-common \
   -fstrict-volatile-bitfields -ffunction-sections -fdata-sections"
