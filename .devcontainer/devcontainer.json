@@ -1,0 +1,39 @@
+{
+    "name": "tricore-linux",
+    "initializeCommand": "uname -r",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": [ "-hmyhost"],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "cmake.buildEnvironment": {
+                    "CMAKE_BUILD_PARALLEL_LEVEL": ""
+                },
+                "terminal.integrated.detectLocale": "off",
+                "terminal.integrated.profiles.linux": {
+                    "bash-login": {
+                        "path": "bash",
+                        "args": [ "--login" ]
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "bash-login"
+            },
+            "extensions": [
+                "akiramiyakoda.cppincludeguard",
+                "cheshirekow.cmake-format",
+                "eamodio.gitlens",
+                "esbenp.prettier-vscode",
+                "ms-vscode.cmake-tools",
+                "ms-vscode.cpptools",
+                "ms-vscode.test-adapter-converter",
+                "twxs.cmake",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    },
+    "forwardPorts": [ 9001 ],
+    "remoteUser": "toor"
+}

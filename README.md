@@ -16,10 +16,10 @@ The port input/output control registers configure the functionality and characte
 - CMake
 - Install [DAS server](https://www.infineon.com/cms/en/product/promopages/das/) the MCD server application
 - Install [Aurix Flasher Tool](https://softwaretools.infineon.com/tools/com.ifx.tb.tool.aurixflashersoftwaretool)
-- Install [tricore-gcc toolchain](https://github.com/NoMore201/tricore-gcc-toolchain)
-- Install [tricore-gdb-das](https://github.com/AkhilTThomas/tricore-gdb-das) MCD - GDB client
-- Optional:
-  - [just](https://github.com/casey/just) a make style command runner
+- Install [tricore-gdb-das](https://github.com/AkhilTThomas/tricore-gdb-das) MCD - GDB client  
+The below dependencies are dockerized  
+    - Install [tricore-gcc toolchain](https://github.com/NoMore201/tricore-gcc-toolchain)
+    - [just](https://github.com/casey/just) a make style command runner
 
 ## Implementation  
 
@@ -39,6 +39,7 @@ This state is hold for one second with the function *waitTime()* from the iLLD *
 Before testing this code example:  
 - Power the board through the dedicated power connector
 - Connect the board to the PC through the USB interface
+- Open repo in container
 - Compilation steps : 
   ```
   just configure
