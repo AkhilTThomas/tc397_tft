@@ -12,7 +12,7 @@
             "linux": {
                 "MIMode": "gdb",
                 "miDebuggerPath": "tricore-elf-gdb",
-                "miDebuggerServerAddress": "10.20.0.2:9001"
+                "miDebuggerServerAddress": "127.0.0.1:9001"
 
             },
             "stopAtConnect": true,

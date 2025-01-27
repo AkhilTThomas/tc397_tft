@@ -1,7 +1,5 @@
-<img src="./Images/IFX_LOGO_600.gif" align="right" width="150" />  
-
-# Blinky_LED_1_KIT_TC397_TFT
-**An LED is blinking based on the timing given by a wait function.**  
+# Blinky_LED
+Demonstrate using open source tricore-gcc toolchain and miniwiggler to *flash* and *debug* a TC397 device
 
 ## Device  
 The device used in this example is AURIX&trade; TC39xTP_A-Step.
@@ -9,18 +7,19 @@ The device used in this example is AURIX&trade; TC39xTP_A-Step.
 ## Board  
 The board used for testing is the AURIX&trade; TC397 TFT (KIT_AURIX_TC397_TFT).
 
-## Scope of work  
-A wait function is used to add delays between switching on and switching off an LED on port pin P13.0.
-
 ## Introduction  
 The individual control and data bits of each GPIO port are implemented in a number of registers. The registers are used to configure and use the port as general-purpose I/O.
 
 The port input/output control registers configure the functionality and characteristics of the GPIO port pin such as port direction (input or output), pull-up, pull-down, and push-pull or open-drain functionality.
 
-## Hardware setup  
-This code example has been developed for the board KIT_A2G_TC397_5V_TFT.
-
-<img src="./Images/Application Kit_TC3xx_Board_top view.png" width="500" />  
+## Prerequisites
+- CMake
+- Install [DAS server](https://www.infineon.com/cms/en/product/promopages/das/) the MCD server application
+- Install [Aurix Flasher Tool](https://softwaretools.infineon.com/tools/com.ifx.tb.tool.aurixflashersoftwaretool)
+- Install [tricore-gcc toolchain](https://github.com/NoMore201/tricore-gcc-toolchain)
+- Install [tricore-gdb-das](https://github.com/AkhilTThomas/tricore-gdb-das) MCD - GDB client
+- Optional:
+  - [just](https://github.com/casey/just) a make style command runner
 
 ## Implementation  
 
@@ -39,27 +38,21 @@ This state is hold for one second with the function *waitTime()* from the iLLD *
 ## Compiling and programming  
 Before testing this code example:  
 - Power the board through the dedicated power connector
-- Connect the board to the PC through the USB interface  
-- Build the project using the dedicated Build button <img src="./Images/build_activeproj.gif" /> or by right-clicking the project name and selecting "Build Project"  
-- To flash the device and immediately run the program, click on the dedicated Flash button <img src="./Images/Widget_Flash.png" width="16"/>
+- Connect the board to the PC through the USB interface
+- Compilation steps : 
+  ```
+  just configure
+  just build
+## Run and Debug 
 
-## Run and Test   
+- Flashing and Launch GDB server ```tricore-gdb-das --elf_file build\Blinky_Led.elf```
+- Debugging :
+  From vscode launch ```F5 > Launch miniwiggler```
 
-After code compilation and flashing the device, observe the **LED D107** (1), which should be blinking at a frequency of approximately 1 Hz.
-
-<img src="./Images/TFT_TCxx7_V1_Top_Blinky.png" width="500" />  
+  <img src="./Images/vscode-gdb-debug.png"/>
 
 ## References  
 
-AURIX&trade; Development Studio is available online:  
-- <https://www.infineon.com/aurixdevelopmentstudio>  
-- Use the "Import..." function to get access to more code examples  
+- <https://github.com/Infineon/AURIX_code_examples>
+- <https://github.com/NoMore201/aurix-cmake-code-sample>
 
-More code examples can be found on the GIT repository:  
-- <https://github.com/Infineon/AURIX_code_examples>  
-
-For additional trainings, visit our webpage:  
-- <https://www.infineon.com/aurix-expert-training>  
-
-For questions and support, use the AURIX&trade; Forum:  
-- <https://community.infineon.com/t5/AURIX/bd-p/AURIX>  
