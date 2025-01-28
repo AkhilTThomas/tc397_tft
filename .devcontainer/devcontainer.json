@@ -35,5 +35,6 @@
         }
     },
     "forwardPorts": [ 9001 ],
-    "remoteUser": "toor"
+    "remoteUser": "toor",
+    "privileged": true
 }

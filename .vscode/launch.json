@@ -1,39 +1,39 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-       {
-            "name": "Miniwiggler",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/build/Blinky_Led.elf",
-            "args": [],
-            "stopAtEntry": true,
-            "cwd": "${workspaceRoot}",
-            "linux": {
-                "MIMode": "gdb",
-                "miDebuggerPath": "tricore-elf-gdb",
-                "miDebuggerServerAddress": "127.0.0.1:9001"
-
-            },
-            "stopAtConnect": true,
-            "launchCompleteCommand": "exec-continue",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                },
-                {
-                    "description":  "Use tricore 1.6 architercture",
-                    "text": "set architecture TriCore:V1_6",
-                    "ignoreFailures": true
-                },
-                {
-                    "description": "set symbol path",
-                    "text": "symbol-file ${workspaceFolder}/build/Blinky_Led.elf",
-                    "ignoreFailures": true
-                }
-            ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Miniwiggler",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/Blinky_Led.elf",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceRoot}",
+      "linux": {
+        "MIMode": "gdb",
+        "miDebuggerPath": "tricore-elf-gdb",
+        "miDebuggerServerAddress": "127.0.0.1:9001"
+      },
+      "stopAtConnect": true,
+      "launchCompleteCommand": "exec-continue",
+      "preLaunchTask": "Launch tricore-gdb-das",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Use tricore 1.6 architercture",
+          "text": "set architecture TriCore:V1_6",
+          "ignoreFailures": true
+        },
+        {
+          "description": "set symbol path",
+          "text": "symbol-file ${workspaceFolder}/build/Blinky_Led.elf",
+          "ignoreFailures": true
         }
-    ]
+      ]
+    }
+  ]
 }

@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Launch tricore-gdb-das",
+      "command": "wine ~/.wine/drive_c/tricore-gdb-das.exe",
+      "type": "shell",
+      "args": [],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "Waiting for a GDB connection.*",
+          "file": 1,
+          "location": 1,
+          "severity": 4
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Found [0-9]+ devices:",
+          "endsPattern": "Waiting for a GDB connection.*"
+        }
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    }
+  ]
+}

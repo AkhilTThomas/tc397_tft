@@ -1,0 +1,2 @@
+#add aurix tricore miniwiggler
+ATTRS{idVendor}=="058b", ATTRS{idProduct}=="0043", MODE="660", GROUP="plugdev", TAG+="uaccess" 
