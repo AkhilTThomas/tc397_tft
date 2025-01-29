@@ -28,9 +28,15 @@ pin such as port direction (input or output), pull-up, pull-down, and push-pull 
 - Download the following into the [.devcontainer](/.devcontainer) folder  
   - [DAS server](https://www.infineon.com/cms/en/product/promopages/das/) the MCD server application  
   - [Aurix Flasher Tool](https://softwaretools.infineon.com/tools/com.ifx.tb.tool.aurixflashersoftwaretool)  
+> [!NOTE]
+> Windows users can use [usbipd-win](https://github.com/dorssel/usbipd-win) to attach the device to WSL2, the docker container runs in
+  privilege mode and can see all the usb devices.
+  Run `winget install usbipd` in powershell to install it.
+  [wsl-usb-manager](https://github.com/nickbeth/wsl-usb-manager) provides a simple GUI ontop of usbipd-win.
+
 - All subsequent dependencies are dockerized  
 - Copy the [udev rules](./.vscode/99-miniwiggler-tricore.rules) into `/etc/udev/rules.d/`  
-  This will ensure that the miniwiggler is attached to a `plugdev` user group. If such a group does not exist create it.
+  This will ensure that the miniwiggler is attached to a `plugdev` user group.
 
 ## Implementation  
 
@@ -53,13 +59,9 @@ Before testing this code example:
 - Power the board through the dedicated power connector
 - Connect the board to the PC through the USB interface
 
-> [!NOTE]
-> Windows users can use [wsl-usb-manager](https://github.com/nickbeth/wsl-usb-manager) to attach the device to WSL2, the docker container runs in
-privilege mode and can see all the usb devices.
-
 - Launch repo in container
-- Compilation steps :
-
+- Execution steps :
+    Run the below commands in terminal
   ```shell
   just configure
   just build

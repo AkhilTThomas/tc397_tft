@@ -157,6 +157,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libbz2-dev \
   vim \
   usbutils \
+  git \
   && apt-get autoremove -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
