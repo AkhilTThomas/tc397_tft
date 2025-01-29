@@ -28,6 +28,12 @@
         "showReuseMessage": false,
         "clear": false
       }
+    },
+    {
+      "label": "flash",
+      "type": "shell",
+      "command": "xvfb-run wine ~/.wine/drive_c/tricore-gdb-das.exe --elf_file ${workspaceFolder}/build/Blinky_Led.hex",
+      "problemMatcher": []
     }
   ]
 }

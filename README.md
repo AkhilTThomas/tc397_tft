@@ -1,7 +1,10 @@
 # Blinky_LED
 
 Demonstrate using open source tricore-gcc toolchain and miniwiggler
-howto to *flash* and *debug* a TC397 device
+howto to *flash* and *debug* a TC397 device.
+
+The primary motivation was to use a miniwiggler to do a basic debugging on aurix devices. Compared to expensive solutions like Lauterbach and UDE
+this is much cheaper to perform a basic debugging and flashing.
 
 ## Device  
 
@@ -23,8 +26,8 @@ pin such as port direction (input or output), pull-up, pull-down, and push-pull 
 
 - CMake
 - Download the following into the [.devcontainer](/.devcontainer) folder  
-    --[DAS server](https://www.infineon.com/cms/en/product/promopages/das/) the MCD server application  
-    --[Aurix Flasher Tool](https://softwaretools.infineon.com/tools/com.ifx.tb.tool.aurixflashersoftwaretool)  
+  - [DAS server](https://www.infineon.com/cms/en/product/promopages/das/) the MCD server application  
+  - [Aurix Flasher Tool](https://softwaretools.infineon.com/tools/com.ifx.tb.tool.aurixflashersoftwaretool)  
 - All subsequent dependencies are dockerized  
 - Copy the [udev rules](./.vscode/99-miniwiggler-tricore.rules) into `/etc/udev/rules.d/`  
   This will ensure that the miniwiggler is attached to a `plugdev` user group. If such a group does not exist create it.
@@ -49,12 +52,18 @@ Before testing this code example:
 
 - Power the board through the dedicated power connector
 - Connect the board to the PC through the USB interface
-- Open repo in container
+
+> [!NOTE]
+> Windows users can use [wsl-usb-manager](https://github.com/nickbeth/wsl-usb-manager) to attach the device to WSL2, the docker container runs in
+privilege mode and can see all the usb devices.
+
+- Launch repo in container
 - Compilation steps :
 
   ```shell
   just configure
   just build
+  just flash
 
 ## Run and Debug
 
