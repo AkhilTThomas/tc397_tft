@@ -83,6 +83,12 @@ FT_STATUS WINAPI FT_Open(int deviceNumber, FT_HANDLE* pHandle)
 
 FT_STATUS WINAPI FT_SetFlowControl(FT_HANDLE ftHandle, USHORT usFlowControl,
                                UCHAR uXon, UCHAR uXoff)
+FT_STATUS WINAPI FT_OpenEx(PVOID pvArg1, DWORD dwFlags, FT_HANDLE* pHandle)
+{
+    TRACE("FT_OpenEx invoked");
+    return xFT_OpenEx(pvArg1, dwFlags, pHandle);
+}
+
 {
     TRACE("ftHandle=%p, usFlowControl=%d, uXon=%d, uXoff=%d\n", ftHandle, usFlowControl, uXon, uXoff);
     FT_STATUS result = xFT_SetFlowControl(ftHandle, usFlowControl, uXon, uXoff);

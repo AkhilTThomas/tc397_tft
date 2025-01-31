@@ -24,7 +24,7 @@
 24 stub FT_SetWaitMask
 25 stub FT_WaitOnMask
 26 stub FT_SetDivisor(ptr long)
-27 stub FT_OpenEx(ptr long ptr)
+27 stdcall FT_OpenEx(ptr long ptr)
 28 stub FT_ListDevices(ptr ptr long)
 29 stdcall FT_SetLatencyTimer(ptr long)
 30 stub FT_GetLatencyTimer(ptr ptr)
