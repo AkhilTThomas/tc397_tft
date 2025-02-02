@@ -15,4 +15,8 @@ _flash hex_file:
 
 # Flash the blinky program
 flash-blinky:
-  @just flash $(pwd)/build/blinky/Blinky_LED.hex
+  @just _flash $(pwd)/build/blinky/Blinky_LED.hex
+
+# Flash the multicore program
+flash-multicore:
+  @just _flash $(pwd)/build/multicore/multicore.hex

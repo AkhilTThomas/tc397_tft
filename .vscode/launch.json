@@ -45,6 +45,10 @@
       {
         "label": "blinky",
         "value": "${workspaceFolder}/build/blinky/Blinky_LED.elf"
+      },
+      {
+        "label": "multicore",
+        "value": "${workspaceFolder}/build/multicore/multicore.elf"
       }
     ]
   }]

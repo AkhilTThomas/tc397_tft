@@ -18,3 +18,17 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
 # GCC, but the open source version does not provide such definition. Here
 # we force it to avoid issues
 add_compile_definitions(__HIGHTEC__)
+
+#Add custom command to generate the .hex file, and
+# create a custom target to build it
+find_program(OBJDUMP_BIN NAMES tricore-objcopy tricore-elf-objcopy REQUIRED)
+
+function(create_hex TARGET)
+    add_custom_target(${TARGET}_hex
+      ALL
+      COMMAND ${OBJDUMP_BIN} ${TARGET}.elf -O ihex ${TARGET}.hex
+      DEPENDS ${TARGET}
+      COMMENT "Generating ${TARGET}.hex"
+      VERBATIM
+    )
+endfunction()

@@ -1,13 +1,13 @@
-set(TARGET Blinky_LED)
+set(TARGET multicore)
 
 add_executable(${TARGET}
-  Blinky_LED.c
   Cpu0_Main.c
   Cpu1_Main.c
   Cpu2_Main.c
   Cpu3_Main.c
   Cpu4_Main.c
   Cpu5_Main.c
+  Multicore.c
 )
 
 target_compile_features(${TARGET} PRIVATE c_std_99 cxx_std_11)

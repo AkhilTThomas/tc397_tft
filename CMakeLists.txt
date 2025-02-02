@@ -27,3 +27,4 @@ add_subdirectory(Configurations)
 
 # Start adding each examples
 add_subdirectory(blinky)
+add_subdirectory(multicore)
