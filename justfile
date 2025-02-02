@@ -9,6 +9,10 @@ configure:
 build:
   cmake --build build
 
-# Flash the hex
-flash:
-  xvfb-run wine ~/.wine/drive_c/tricore-gdb-das.exe --elf_file $(pwd)/build/Blinky_Led.hex
+# Flash the hex file
+_flash hex_file:
+  xvfb-run -a wine ~/.wine/drive_c/tricore-gdb-das.exe --elf_file {{hex_file}}
+
+# Flash the blinky program
+flash-blinky:
+  @just flash $(pwd)/build/blinky/Blinky_LED.hex

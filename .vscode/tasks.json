@@ -32,8 +32,19 @@
     {
       "label": "flash",
       "type": "shell",
-      "command": "xvfb-run wine ~/.wine/drive_c/tricore-gdb-das.exe --elf_file ${workspaceFolder}/build/Blinky_Led.hex",
+      "command": "xvfb-run wine ~/.wine/drive_c/tricore-gdb-das.exe --elf_file ${input:elf_list}",
       "problemMatcher": []
     }
-  ]
+  ],
+  "inputs": [{
+    "id": "elf_list",
+    "description": "Choose the elf to flash",
+    "type": "pickString",
+    "options": [
+      {
+        "label": "blinky",
+        "value": "${workspaceFolder}/build/blinky/Blinky_LED.hex"
+      }
+    ]
+  }]
 }

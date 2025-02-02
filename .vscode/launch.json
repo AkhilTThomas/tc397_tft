@@ -5,7 +5,7 @@
       "name": "Miniwiggler",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/Blinky_Led.elf",
+      "program": "${input:elf_list}",
       "args": [],
       "stopAtEntry": true,
       "cwd": "${workspaceRoot}",
@@ -14,6 +14,7 @@
         "miDebuggerPath": "tricore-elf-gdb",
         "miDebuggerServerAddress": "127.0.0.1:9001"
       },
+      "svdPath": "${workspaceFolder}/TC39XED.svd",
       "stopAtConnect": true,
       "launchCompleteCommand": "exec-continue",
       "preLaunchTask": "Launch tricore-gdb-das",
@@ -25,15 +26,26 @@
         },
         {
           "description": "Use tricore 1.6 architercture",
-          "text": "set architecture TriCore:V1_6",
+          "text": "set architecture TriCore:V1_6_2",
           "ignoreFailures": true
         },
         {
           "description": "set symbol path",
-          "text": "symbol-file ${workspaceFolder}/build/Blinky_Led.elf",
+          "text": "symbol-file ${input:elf_list}",
           "ignoreFailures": true
         }
       ]
     }
-  ]
+  ],
+ "inputs": [{
+    "id": "elf_list",
+    "description": "Choose the elf to debug",
+    "type": "pickString",
+    "options": [
+      {
+        "label": "blinky",
+        "value": "${workspaceFolder}/build/blinky/Blinky_LED.elf"
+      }
+    ]
+  }]
 }

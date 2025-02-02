@@ -22,7 +22,6 @@
                 "terminal.integrated.defaultProfile.linux": "bash-login"
             },
             "extensions": [
-                "akiramiyakoda.cppincludeguard",
                 "cheshirekow.cmake-format",
                 "eamodio.gitlens",
                 "esbenp.prettier-vscode",
@@ -31,7 +30,9 @@
                 "ms-vscode.test-adapter-converter",
                 "twxs.cmake",
                 "llvm-vs-code-extensions.vscode-clangd",
-                "ms-vscode.cmake-tools"
+                "ms-vscode.cmake-tools",
+                "marus25.cortex-debug",
+                "eclipse-cdt.cdt-gdb-vscode"
             ]
         }
     },
