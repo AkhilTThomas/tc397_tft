@@ -22,6 +22,20 @@ set(CMAKE_EXE_LINKER_FLAGS "\
 )
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+find_program(OBJDUMP_BIN NAMES tricore-objcopy tricore-elf-objcopy REQUIRED)
+
+# Add custom command to generate the .hex file
+# create a custom target to build it
+function(create_hex target)
+  add_custom_target(${target}_hex
+      ALL
+      COMMAND ${OBJDUMP_BIN} ${target}.elf -O ihex ${target}.hex
+      DEPENDS ${target}
+      COMMENT "Generating ${target}.hex"
+      VERBATIM
+  )
+endfunction()
+
 add_subdirectory(Libraries)
 add_subdirectory(Configurations)
 

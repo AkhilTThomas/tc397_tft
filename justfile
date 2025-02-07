@@ -9,6 +9,10 @@ configure:
 build:
   cmake --build build
 
+# remove build artifacts
+clean:
+  @rm -rf build
+
 # Flash the hex file
 _flash hex_file:
   xvfb-run -a wine ~/.wine/drive_c/tricore-gdb-das.exe --elf_file {{hex_file}}
